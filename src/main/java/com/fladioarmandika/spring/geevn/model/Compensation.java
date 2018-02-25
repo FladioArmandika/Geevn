@@ -1,9 +1,6 @@
 package com.fladioarmandika.spring.geevn.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "compensation")
@@ -11,6 +8,7 @@ public class Compensation {
 
     @Id
     @Column
+    @OneToOne
     private int employeeId;
     @Column
     private String title;
@@ -20,6 +18,9 @@ public class Compensation {
     private int amount;
     @Column
     private String bankAccount;
+
+    @OneToOne(mappedBy = "employee")
+    private Employee employee;
 
     public int getEmployeeId() {
         return employeeId;
@@ -59,5 +60,13 @@ public class Compensation {
 
     public void setBankAccount(String bankAccount) {
         this.bankAccount = bankAccount;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

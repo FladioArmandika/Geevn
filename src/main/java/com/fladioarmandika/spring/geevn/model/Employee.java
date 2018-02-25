@@ -15,13 +15,13 @@ public class Employee {
     private String employeeName;
 
     @Column
-    private String sex;
+    private String gender;
 
     @Column
-    private Date dateOfBirth;
+    private String dateOfBirth;
 
     @Column
-    private Date dateJoined;
+    private String dateJoined;
 
     @Column
     private String address;
@@ -31,6 +31,10 @@ public class Employee {
 
     @Column
     private String phone;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Compensation compensation;
 
     public int getEmployeeId() {
         return employeeId;
@@ -48,27 +52,27 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String sex) {
+        this.gender = sex;
     }
 
-    public Date getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Date getDateJoined() {
+    public String getDateJoined() {
         return dateJoined;
     }
 
-    public void setDateJoined(Date dateJoined) {
+    public void setDateJoined(String dateJoined) {
         this.dateJoined = dateJoined;
     }
 
